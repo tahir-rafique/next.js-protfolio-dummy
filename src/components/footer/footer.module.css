@@ -1,0 +1,15 @@
+.footer{
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: goldenrod; */
+
+}
+
+.socialicons{
+    /* background-color: gainsboro; */
+    display: flex;
+    gap: 10px;
+    
+
+}
