@@ -1,35 +1,32 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 
-const { Schema } = mongoose
+const { Schema } = mongoose;
 
-const postSechma = new Schema({
-    title: {
-        type: string,
-        required: true,
+const postSchema = new Schema(
+    {
+        title: {
+            type: String,
+            required: true,
+        },
+        desc: {
+            type: String,
+            required: true,
+        },
+        img: {
+            type: String,
+            required: true,
+        },
+        content: {
+            type: String,
+            required: true,
+        },
+        username: {
+            type: String,
+            required: true,
+        },
     },
+    { timestamps: true }
+);
 
-    desc: {
-        type: string,
-        required: true,
-    },
-
-    img: {
-        type: string,
-        required: true,
-    },
-
-    content: {
-        type: string,
-        required: true,
-    },
-    
-    username: {
-        type: string,
-        required: true,
-    },
-
-
-}, { timestamps: true })
-
-
-export default mongoose.model("Post", postSechma)
+//If the Post collection does not exist create a new one.
+export default mongoose.models.Post || mongoose.model("Post", postSchema);

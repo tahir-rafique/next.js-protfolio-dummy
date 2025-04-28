@@ -1,25 +1,27 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 
-const { Schema } = mongoose
+const { Schema } = mongoose;
 
-const userSechma = new Schema({
-    name: {
-        type: string,
-        unique: true,
-        required: true,
+const userSchema = new Schema(
+    {
+        name: {
+            type: String,
+            unique: true,
+            required: true,
+        },
+        email: {
+            type: String,
+            unique: true,
+            required: true,
+        },
+        password: {
+            type: String,
+            required: true,
+        },
     },
+    { timestamps: true }
+);
 
-    email: {
-        type: string,
-        unique: true,
-        required: true,
-    },
-
-    email: {
-        type: string,
-        required: true,
-    },
-}, { timestamps: true })
-
-
-export default mongoose.model("User", userSechma)
+//If the User collection does not exist create a new one.
+export default mongoose.models.User || mongoose.model("User", userSchema);
+    
